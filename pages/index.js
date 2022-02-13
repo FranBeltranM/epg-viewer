@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import Header from '../components/header'
 
 export default function Home({ DATA }) {
   return (
@@ -11,6 +11,8 @@ export default function Home({ DATA }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Header />
+
       <main className="flex p-8 flex-col items-center justify-center">
         <h1 className="text-3xl font-bold underline text-cyan-800 m-4">
           Lista de Canales 😎
@@ -20,15 +22,15 @@ export default function Home({ DATA }) {
             DATA.map((d, key) => (
               <li
                 key={key}
-                className="flex flex-col justify-center items-center text-xs capitalize font-semibold mb-4"
+                className="flex justify-left items-center text-xs capitalize font-semibold mb-4"
               >
                 <Image
-                  width={50}
-                  height={50}
+                  width={25}
+                  height={25}
                   objectFit='contain'
                   src={'https://www.movistarplus.es/recorte/m-NEO/canal/' + d.CODIGO + '.png'}
                 />
-                <span className='mt-1'>
+                <span className='m-1'>
                   {d.NOMBRE} | {d.DIAL_PRINCIPAL[0]}
                 </span>
               </li>
